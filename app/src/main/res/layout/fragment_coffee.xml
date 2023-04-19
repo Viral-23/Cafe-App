@@ -5,12 +5,48 @@
     android:layout_height="match_parent"
     tools:context=".CoffeeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Coffee Fragment"
-        android:textSize="26dp"
-        android:gravity="center"/>
+
+    <Spinner
+        android:id="@+id/cupSizes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="100dp"
+    />
+
+    <CheckBox
+        android:id="@+id/sweetCreamCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="200dp" />
+
+    <CheckBox
+        android:id="@+id/frenchVanillaCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="250dp" />
+
+    <CheckBox
+        android:id="@+id/irishCreamCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="300dp" />
+
+    <CheckBox
+        android:id="@+id/caramelCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="350dp" />
+
+    <CheckBox
+        android:id="@+id/mochaCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="400dp" />
 
 </FrameLayout>

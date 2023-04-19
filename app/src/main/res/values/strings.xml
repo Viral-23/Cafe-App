@@ -1,5 +1,20 @@
 <resources>
     <string name="app_name">RUCafe</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="cupSizeOptions">
+        <item>Select Cup Size</item>
+        <item>Short</item>
+        <item>Tall</item>
+        <item>Grande</item>
+        <item>Venti</item>
+    </string-array>
+
+    <string-array name="addInOptions">
+        <item>Sweet Cream</item>
+        <item>French Vanilla</item>
+        <item>Irish Cream</item>
+        <item>Caramel</item>
+        <item>Mocha</item>
+    </string-array>
+
 </resources>

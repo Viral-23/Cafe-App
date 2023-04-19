@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.Spinner;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,50 +18,64 @@ import android.view.ViewGroup;
  */
 public class CoffeeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    Coffee coffee = new Coffee();
+    private Spinner cupSizes;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private CheckBox sweetCreamCheckBox;
+    private CheckBox frenchVanillaCheckBox;
+    private CheckBox irishCreamCheckBox;
+    private CheckBox caramelCheckBox;
+    private CheckBox mochaCheckBox;
 
     public CoffeeFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CoffeeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static CoffeeFragment newInstance(String param1, String param2) {
         CoffeeFragment fragment = new CoffeeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_coffee, container, false);
+
+        setCupSizeSpinner(view);
+        setAddInCheckBoxes(view);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_coffee, container, false);
+        return view;
+    }
+
+    private void setCupSizeSpinner(View view) {
+        cupSizes = view.findViewById(R.id.cupSizes);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.cupSizeOptions, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        cupSizes.setAdapter(adapter);
+    }
+    private void setAddInCheckBoxes(View view) {
+        String[] addInOptions = getResources().getStringArray(R.array.addInOptions);
+
+        sweetCreamCheckBox = view.findViewById(R.id.sweetCreamCheckBox);
+        frenchVanillaCheckBox = view.findViewById(R.id.frenchVanillaCheckBox);
+        irishCreamCheckBox = view.findViewById(R.id.irishCreamCheckBox);
+        caramelCheckBox = view.findViewById(R.id.caramelCheckBox);
+        mochaCheckBox = view.findViewById(R.id.mochaCheckBox);
+
+        sweetCreamCheckBox.setText(addInOptions[0]);
+        frenchVanillaCheckBox.setText(addInOptions[1]);
+        irishCreamCheckBox.setText(addInOptions[2]);
+        caramelCheckBox.setText(addInOptions[3]);
+        mochaCheckBox.setText(addInOptions[4]);
+    }
+
+    private void addInsOnClick(View view) {
+
     }
 }
