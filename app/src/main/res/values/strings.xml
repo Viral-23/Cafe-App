@@ -17,4 +17,21 @@
         <item>Mocha</item>
     </string-array>
 
+    <string name="addToOrder">Add To Order</string>
+
+    <string-array name="coffeeQuantityOptions">
+        <item>Select Quantity</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string name="noCupSelectedTitle">No cup size selected</string>
+    <string name="noCupSelectedMessage">Please select a cup size in order to place order.</string>
+
+    <string name="noQuantitySelectedTitle">No quantity selected</string>
+    <string name="noQuantitySelectedMessage">Please select a quantity in order to place order.</string>
+
 </resources>

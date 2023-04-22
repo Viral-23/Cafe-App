@@ -11,7 +11,7 @@
         android:layout_width="279dp"
         android:layout_height="258dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="375dp"
         android:scaleType="fitCenter"
         android:src="@drawable/donut" />
 
@@ -20,7 +20,7 @@
         android:layout_width="279dp"
         android:layout_height="258dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:scaleType="fitCenter"
         android:src="@drawable/coffee" />
 

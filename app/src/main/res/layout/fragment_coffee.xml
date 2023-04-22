@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,42 +12,72 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="100dp"
-    />
+        android:layout_marginTop="75dp" />
 
     <CheckBox
         android:id="@+id/sweetCreamCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="200dp" />
+        android:layout_marginTop="125dp" />
 
     <CheckBox
         android:id="@+id/frenchVanillaCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="250dp" />
+        android:layout_marginTop="175dp" />
 
     <CheckBox
         android:id="@+id/irishCreamCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="300dp" />
+        android:layout_marginTop="225dp" />
 
     <CheckBox
         android:id="@+id/caramelCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="350dp" />
+        android:layout_marginTop="275dp" />
 
     <CheckBox
         android:id="@+id/mochaCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="400dp" />
+        android:layout_marginTop="325dp" />
+    <ScrollView
+        android:layout_width="375dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="425dp"
+        android:layout_marginBottom="140dp" >
+        <TextView
+            android:id="@+id/totalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/addToOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="600dp"
+        android:layout_marginRight="35dp"
+        android:backgroundTint="@color/black" />
+
+    <Spinner
+        android:id="@+id/coffeeQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="390dp"
+        />
 
 </FrameLayout>
