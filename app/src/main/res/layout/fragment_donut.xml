@@ -5,12 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".DonutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/donutOptionsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Donut Fragment"
-        android:textSize="26dp"
-        android:gravity="center" />
+        />
 
 </FrameLayout>

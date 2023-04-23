@@ -34,4 +34,22 @@
     <string name="noQuantitySelectedTitle">No quantity selected</string>
     <string name="noQuantitySelectedMessage">Please select a quantity in order to place order.</string>
 
+    <string-array name="donutNamesOptions">
+        <item>Glazed Yeast Donut</item>
+        <item>Chocolate Yeast Donut</item>
+        <item>Strawberry Yeast Donut</item>
+        <item>Cinnamon Yeast Donut</item>
+
+        <item>Matcha Cake Donut</item>
+        <item>Blackberry Cake Donut</item>
+        <item>Salted Tehina Cake Donut</item>
+        <item>Lemon Cake Donut</item>
+
+        <item>Glazed Donut Hole</item>
+        <item>Pumpkin Spice Donut Hole</item>
+        <item>Blueberry Donut Hole</item>
+        <item>Rainbow Donut Hole</item>
+    </string-array>
+
+
 </resources>
