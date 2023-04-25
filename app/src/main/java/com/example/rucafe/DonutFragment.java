@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,8 @@ import com.example.project4.*;
  */
 public class DonutFragment extends Fragment {
 
-    Donut donut;
+    public static Toast donutToast;
+    private Donut donut;
     private ArrayList<Item> items = new ArrayList<>();
     private int [] itemImages = {R.drawable.glazedyeastdonutimg, R.drawable.chocolateyeastdonutimg,
             R.drawable.strawberryyeastdonutimg, R.drawable.cinnamonyeastdonutimg,

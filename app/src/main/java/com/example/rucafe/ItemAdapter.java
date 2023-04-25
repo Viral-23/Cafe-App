@@ -96,7 +96,6 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
         private NumberPicker donut_quantity_selector;
         private ConstraintLayout parentLayout; //this is the row layout
 
-
         public ItemsHolder(@NonNull View itemView) {
             super(itemView);
             donut_name = itemView.findViewById(R.id.donut_flavor);
@@ -122,19 +121,25 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
                     alert.setTitle("Add to order");
                     Donut donut = createDonut();
                     alert.setMessage(getSubtotalString(donut));
-                    //handle the "YES" click
                     alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            if (DonutFragment.donutToast != null) {
+                                DonutFragment.donutToast.cancel();
+                            }
                             clearDonutQuantitySelector();
                             OrdersFragment.order.addItemToOrder(donut);
-                            Toast.makeText(itemView.getContext(),
-                                    donut_name.getText().toString() + " added to order.", Toast.LENGTH_LONG).show();
+                            DonutFragment.donutToast = Toast.makeText(itemView.getContext(),
+                                    donut_name.getText().toString() + " added to order.", Toast.LENGTH_SHORT);
+                            DonutFragment.donutToast.show();
                         }
-                        //handle the "NO" click
                     }).setNegativeButton("no", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(itemView.getContext(),
-                                    donut_name.getText().toString() + " not added to order.", Toast.LENGTH_LONG).show();
+                            if (DonutFragment.donutToast != null) {
+                                DonutFragment.donutToast.cancel();
+                            }
+                            DonutFragment.donutToast = Toast.makeText(itemView.getContext(),
+                                    donut_name.getText().toString() + " not added to order.", Toast.LENGTH_SHORT);
+                            DonutFragment.donutToast.show();
                         }
                     });
                     AlertDialog dialog = alert.create();
