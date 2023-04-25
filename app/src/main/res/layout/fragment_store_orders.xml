@@ -5,12 +5,24 @@
     android:layout_height="match_parent"
     tools:context=".StoreOrdersFragment">
 
-    <TextView
+    <ListView
+        android:id="@+id/storeOrdersListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Store Orders Fragment"
-        android:textSize="24sp"
-        android:gravity="center"
-        />
+        android:layout_height="521dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="20dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray" />
+    />
+
+    <Button
+        android:id="@+id/cancelStoreOrdersButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="600dp"
+        android:backgroundTint="@color/black"
+        android:text="Cancel Order" />
 
 </FrameLayout>

@@ -1,5 +1,7 @@
 package com.example.rucafe;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -159,16 +161,53 @@ public class OrdersFragment extends Fragment {
                     toast.show();
                 }
                 else {
-                    toast = Toast.makeText(getActivity(), R.string.orderPlaced,
-                            Toast.LENGTH_SHORT);
-                    toast.show();
-
-                    // TODO: Add order to orderTracker in store orders view
-                    order = new Order();
-                    updateOrderList();
+                    placeOrderAlert();
                 }
             }
         });
+    }
+
+    private void placeOrderAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.placeOrderTitle);
+        builder.setMessage(R.string.placeOrderMsg);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+
+                StoreOrdersFragment.orderTracker.add(order);
+//                toast = Toast.makeText(getActivity(), R.string.orderPlaced,
+//                        Toast.LENGTH_SHORT);
+//                toast.show();
+                placeOrderConfirmationAlert();
+                order = new Order();
+                updateOrderList();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void placeOrderConfirmationAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.placeOrderConfirmationTitle);
+        String orderNum = Integer.toString(order.getOrderNumber());
+        String orderText = getResources().getString(R.string.placeOrderConfirmationMsg);
+        builder.setMessage(orderText + orderNum);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void updateOrderList() {

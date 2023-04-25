@@ -65,5 +65,20 @@
     <string name="salesTaxMsg">Sales Tax:</string>
     <string name="totalMsg">Total:</string>
 
+    <string name="orderCanceled">Order Canceled</string>
+    <string name="noOrderSelected">No Order Selected</string>
+    <string name="noOrdersToBeCanceled">No Orders To Be Canceled</string>
+
+    <string name="placeOrderTitle">Place Order</string>
+    <string name="placeOrderMsg">Do you want to place the order?</string>
+
+    <string name="placeOrderConfirmationTitle">Success!</string>
+    <string name="placeOrderConfirmationMsg">Your order has been placed.\n\n
+        Your order number is: #</string>
+
+    <string name="cancelOrderTitle">Cancel Order</string>
+    <string name="cancelOrderMsg">Do you want really want to cancel the order?\n\n
+        WARNING: This action cannot be undone</string>
+
 
 </resources>

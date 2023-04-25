@@ -101,7 +101,7 @@ public class Coffee extends MenuItem {
             }
         }
 
-        ret += "\n";
+        ret += "\n\n";
 
 
         String price = String.format("%.2f", itemPrice());

@@ -127,7 +127,7 @@ public class Order {
         String ret = "Order #" + orderNumber + "\n\n";
 
         for (MenuItem menuItem : itemsInOrder) {
-            ret += menuItem.toString();
+            ret += (menuItem.toString() + "\n\n\n");
         }
 
         String formattedTotal = String.format("%.2f", total);
