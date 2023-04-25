@@ -3,13 +3,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="75dp"
     tools:context=".OrdersFragment">
 
-    <TextView
+    <ImageButton
+        android:id="@+id/storeOrdersButton"
+        android:layout_width="wrap_content"
+        android:layout_height="144dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="540dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/orderimg" />
+
+    <ListView
+        android:id="@+id/currentOrderListView"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="20dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray" />
+        />
+
+    <Button
+        android:id="@+id/removeFromOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Orders Fragment"
-        android:textSize="26dp"
-        android:layout_gravity="center"/>
+        android:text="Remove From Order"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="420dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Store Orders"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:layout_marginTop="505dp"
+        />
+
+    <Button
+        android:id="@+id/placeOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="420dp"
+        android:layout_marginLeft="240dp"
+        android:text="Place Order" />
+
+    <TextView
+        android:id="@+id/subtotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="330dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/salesTaxText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="360dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/totalForOrderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="390dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/orderSubtotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="120dp"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/orderSalesTaxText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="120dp"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/orderTotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="390dp"
+        android:layout_marginLeft="120dp"
+        android:textSize="18sp"
+        />
+
 </FrameLayout>

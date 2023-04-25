@@ -51,5 +51,19 @@
         <item>Rainbow Donut Hole</item>
     </string-array>
 
+    <string name="coffeeAddedToOrderToastMessage">Coffee Added To Order</string>
+
+    <string name="noItemToBeRemovedOrPlaced">No Items In Basket</string>
+    <string name="noItemSelected">No Item Selected</string>
+
+
+    <string name="itemRemoved">Item Removed</string>
+    <string name="orderPlaced">Order Placed</string>
+
+
+    <string name="subtotalMsg">Subtotal:</string>
+    <string name="salesTaxMsg">Sales Tax:</string>
+    <string name="totalMsg">Total:</string>
+
 
 </resources>

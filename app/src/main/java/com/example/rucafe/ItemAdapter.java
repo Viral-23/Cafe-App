@@ -126,15 +126,15 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
                     alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             clearDonutQuantitySelector();
-                            // TODO: Add donut to order list
+                            OrdersFragment.order.addItemToOrder(donut);
                             Toast.makeText(itemView.getContext(),
-                                    donut_name.getText().toString() + " added.", Toast.LENGTH_LONG).show();
+                                    donut_name.getText().toString() + " added to order.", Toast.LENGTH_LONG).show();
                         }
                         //handle the "NO" click
                     }).setNegativeButton("no", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(itemView.getContext(),
-                                    donut_name.getText().toString() + " not added.", Toast.LENGTH_LONG).show();
+                                    donut_name.getText().toString() + " not added to order.", Toast.LENGTH_LONG).show();
                         }
                     });
                     AlertDialog dialog = alert.create();

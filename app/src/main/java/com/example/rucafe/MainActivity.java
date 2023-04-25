@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
+        OrdersFragment ordersFragment = new OrdersFragment();
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
             if (item.getItemId() == R.id.home)
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             else if (item.getItemId() == R.id.menu)
                 replaceFragment(new MenuFragment());
             else if (item.getItemId() == R.id.orders)
-                replaceFragment(new OrdersFragment());
+                replaceFragment(ordersFragment);
 
             return true;
         });

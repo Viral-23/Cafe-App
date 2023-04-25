@@ -40,7 +40,7 @@ public class DonutFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static DonutFragment newInstance(String param1, String param2) {
+    public static DonutFragment newInstance() {
         DonutFragment fragment = new DonutFragment();
         return fragment;
     }

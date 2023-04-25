@@ -209,7 +209,13 @@ public class CoffeeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (cupSelected && quantitySelected) {
-                    // TODO: Add to orders list
+                    if (toast != null)
+                        toast.cancel();
+
+                    toast = Toast.makeText(getActivity(), R.string.coffeeAddedToOrderToastMessage,
+                            Toast.LENGTH_SHORT);
+                    toast.show();
+                    OrdersFragment.order.addItemToOrder(coffee);
                 }
                 else if (cupSelected) {
                     noQuantitySelected();
