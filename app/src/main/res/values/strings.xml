@@ -80,5 +80,8 @@
     <string name="cancelOrderMsg">Do you want really want to cancel the order?\n\n
         WARNING: This action cannot be undone.</string>
 
+    <string name="homeWelcomeMsg">Welcome!</string>
+
+
 
 </resources>

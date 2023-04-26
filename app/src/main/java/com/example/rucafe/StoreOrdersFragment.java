@@ -174,6 +174,8 @@ public class StoreOrdersFragment extends Fragment {
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                updateStoreOrdersList();
+                selectedPosition = Constants.NOT_FOUND;
                 dialog.dismiss();
             }
         });
