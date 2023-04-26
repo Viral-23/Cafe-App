@@ -21,9 +21,8 @@ import com.example.project4.Order;
 import com.example.project4.OrderTracker;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link StoreOrdersFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * This is the fragment that displays the store order details.
+ * @author Viral Patel
  */
 public class StoreOrdersFragment extends Fragment {
 
@@ -34,19 +33,44 @@ public class StoreOrdersFragment extends Fragment {
     private Button cancelStoreOrdersButton;
     private Toast toast;
 
+    /**
+     * Default constructor.
+     */
     public StoreOrdersFragment() {
         // Required empty public constructor
     }
+
+    /**
+     * Creates a new instance of the store orders fragment.
+     * @return Fragment: returns the new instance of the store orders fragment.
+     */
     public static StoreOrdersFragment newInstance() {
         StoreOrdersFragment fragment = new StoreOrdersFragment();
         return fragment;
     }
 
+    /**
+     * Initializes the state of the store orders fragment.
+     * @param savedInstanceState If the fragment is being re-created from
+     * a previous saved state, this is the state.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Sets up the ListView of store orders and the cancel order button.
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return View: returns the view, which contains all the UI elements for the orders fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,17 +81,29 @@ public class StoreOrdersFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Sets up the ListView which displays the store orders.
+     * @param view: the view which contains all UI elements for the orders fragment.
+     */
     private void setStoreOrdersListView(View view) {
         storeOrdersListView = view.findViewById(R.id.storeOrdersListView);
         updateStoreOrdersList();
         storeOrdersListViewOnSelection();
     }
 
+    /**
+     * Updates the store orders ListView if changes have been made (order added or removed).
+     */
     private void updateStoreOrdersList() {
         ArrayAdapter<Order> adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, orderTracker.getOrdersInTracker());
         storeOrdersListView.setAdapter(adapter);
     }
+
+    /**
+     * Handles the selection of an order in the store orders list, which updates the index
+     * that indicates which order is currently selected.
+     */
     private void storeOrdersListViewOnSelection() {
         storeOrdersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,11 +114,19 @@ public class StoreOrdersFragment extends Fragment {
         });
     }
 
+    /**
+     * Sets up the cancel order button.
+     * @param view: the view which contains all UI elements for the orders fragment.
+     */
     private void setCancelStoreOrdersButton(View view) {
         cancelStoreOrdersButton = view.findViewById(R.id.cancelStoreOrdersButton);
         cancelStoreOrdersButtonOnClick();
     }
 
+    /**
+     * Sets up the on click handler for the cancel order button. Displays a toast if an error has
+     * occurred, otherwise displays an alert dialog for confirmation of the cancellation.
+     */
     private void cancelStoreOrdersButtonOnClick() {
         cancelStoreOrdersButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +150,15 @@ public class StoreOrdersFragment extends Fragment {
 //                    toast = Toast.makeText(getActivity(), R.string.orderCanceled,
 //                            Toast.LENGTH_SHORT);
 //                    toast.show();
-
+                    cancelOrderAlert();
                 }
             }
         });
     }
 
+    /**
+     * Creates the alert dialog prompting the user to confirm if they want to cancel an order.
+     */
     private void cancelOrderAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.cancelOrderTitle);

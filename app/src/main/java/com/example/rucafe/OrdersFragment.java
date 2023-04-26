@@ -26,9 +26,9 @@ import com.example.project4.MenuItem;
 import com.example.project4.Order;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link OrdersFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * This is the fragment that displays the customer order details and the navigation
+ * to the store orders fragment.
+ * @author Viral Patel
  */
 public class OrdersFragment extends Fragment {
 
@@ -46,26 +46,46 @@ public class OrdersFragment extends Fragment {
     Toast toast;
 
 
+    /**
+     * Default Constructor
+     */
     public OrdersFragment() {
         // Required empty public constructor
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     * @return A new instance of fragment OrdersFragment.
+     * Creates a new instance of the orders fragment.
+     * @return Fragment: returns the new instance of the orders fragment.
      */
-
     public static OrdersFragment newInstance() {
         OrdersFragment fragment = new OrdersFragment();
         return fragment;
     }
 
+    /**
+     * Initializes the state of the orders fragment.
+     * @param savedInstanceState If the fragment is being re-created from
+     * a previous saved state, this is the state.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Sets up the listview which displays the list of items in the user's order and sets up
+     * the textview which displays the payment details. Also sets up the button to navigate
+     * to the store orders fragment.
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return View: returns the view, which contains all the UI elements for the orders fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,11 +99,20 @@ public class OrdersFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Sets up the ListView for the user's order.
+     * @param view: the view which contains all UI elements for the orders fragment.
+     */
     private void setCurrentOrderListView(View view) {
         currentOrderListView = view.findViewById(R.id.currentOrderListView);
         updateOrderList();
         currentOrderListViewSelection();
     }
+
+    /**
+     * Sets up the TextViews which contain the payment details for the user's order.
+     * @param view: the view which contains all UI elements for the orders fragment.
+     */
     private void setTextViews(View view) {
         orderSubtotalText = view.findViewById(R.id.orderSubtotalText);
         orderSalesTaxText = view.findViewById(R.id.orderSalesTaxText);
@@ -93,6 +122,11 @@ public class OrdersFragment extends Fragment {
         salesTaxText = view.findViewById(R.id.salesTaxText);
         totalForOrderText = view.findViewById(R.id.totalForOrderText);
     }
+
+    /**
+     * Handles the selection of an item in the order, which updates the index that indicates which
+     * item is currently selected.
+     */
     private void currentOrderListViewSelection() {
         currentOrderListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -102,6 +136,12 @@ public class OrdersFragment extends Fragment {
             }
         });
     }
+
+    /**
+     * Set up the store orders button, which will allow the user to navigate to a list of
+     * store orders.
+     * @param view: the view which contains all UI elements for the orders fragment.
+     */
     private void setStoreOrdersButton(View view) {
         storeOrdersButton = view.findViewById(R.id.storeOrdersButton);
         StoreOrdersFragment storeOrdersFragment = new StoreOrdersFragment();
@@ -112,6 +152,12 @@ public class OrdersFragment extends Fragment {
             }
         });
     }
+
+    /**
+     * Sets up the remove from order button, which allows the user to remove an item from their
+     * order. Displays a toast with relevant error or confirmation message.
+     * @param view: the view which contains all UI elements for the orders fragment.
+     */
     private void setRemoveFromOrderButton(View view) {
         removeFromOrderButton = view.findViewById(R.id.removeFromOrderButton);
         removeFromOrderButton.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +191,12 @@ public class OrdersFragment extends Fragment {
         });
     }
 
+    /**
+     * Sets up the place order button, which will allow the user to place their order. Displays
+     * a toast for error messages, otherwise displays an alert dialog with order number to show
+     * that the order has been placed.
+     * @param view: the view which contains all UI elements for the orders fragment.
+     */
     private void setPlaceOrderButton(View view) {
         placeOrderButton = view.findViewById(R.id.placeOrderButton);
 
@@ -167,6 +219,10 @@ public class OrdersFragment extends Fragment {
         });
     }
 
+    /**
+     * Creates the alert dialog when the user goes to place their order. Only will happen if
+     * there are no errors.
+     */
     private void placeOrderAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.placeOrderTitle);
@@ -195,6 +251,10 @@ public class OrdersFragment extends Fragment {
         dialog.show();
     }
 
+    /**
+     * Creates an alert dialog notifying the user that their order has successfully been placed.
+     * Shows the order number of their order.
+     */
     private void placeOrderConfirmationAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.placeOrderConfirmationTitle);
@@ -210,6 +270,10 @@ public class OrdersFragment extends Fragment {
         dialog.show();
     }
 
+    /**
+     * Updates the ListView of MenuItems if changes were made. Sets or clears the payment details
+     * if possible.
+     */
     private void updateOrderList() {
         ArrayAdapter<MenuItem> adapter = new ArrayAdapter<>(getContext(),
         android.R.layout.simple_list_item_1, order.getItemsInOrder());
@@ -222,6 +286,9 @@ public class OrdersFragment extends Fragment {
         }
     }
 
+    /**
+     * Helper method to clear the payment details, if not enough information.
+     */
     private void clearReceipt() {
         orderSubtotalText.setText("");
         orderSalesTaxText.setText("");
@@ -232,6 +299,9 @@ public class OrdersFragment extends Fragment {
         totalForOrderText.setText("");
     }
 
+    /**
+     * Helper method to set the payment details, if enough information.
+     */
     private void setReceipt() {
         orderSubtotalText.setText("$" + String.format("%.2f", order.calculateSubtotal()));
         orderSalesTaxText.setText("$" + String.format("%.2f", order.calculateSalesTax()));
@@ -241,6 +311,11 @@ public class OrdersFragment extends Fragment {
         salesTaxText.setText(R.string.salesTaxMsg);
         totalForOrderText.setText(R.string.totalMsg);
     }
+
+    /**
+     * Helper method which replaces the fragment being displayed in the activity.
+     * @param fragment: the fragment to be displayed.
+     */
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

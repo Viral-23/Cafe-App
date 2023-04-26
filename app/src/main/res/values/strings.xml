@@ -78,7 +78,7 @@
 
     <string name="cancelOrderTitle">Cancel Order</string>
     <string name="cancelOrderMsg">Do you want really want to cancel the order?\n\n
-        WARNING: This action cannot be undone</string>
+        WARNING: This action cannot be undone.</string>
 
 
 </resources>

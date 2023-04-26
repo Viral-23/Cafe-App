@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import com.example.project4.*;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link DonutFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * This is the fragment that handles the selection of a donut, and allows the user to
+ * add it to their basket.
+ * @author Viral Patel
  */
 public class DonutFragment extends Fragment {
 
@@ -36,22 +36,44 @@ public class DonutFragment extends Fragment {
 
     private RecyclerView donutOptionsRecyclerView;
 
-    private NumberPicker donutQuantitySelector;
-
+    /**
+     * Default constructor for the donut fragment.
+     */
     public DonutFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * Creates a new instance of the donut fragment.
+     * @return Fragment: returns the new donut fragment.
+     */
     public static DonutFragment newInstance() {
         DonutFragment fragment = new DonutFragment();
         return fragment;
     }
 
+    /**
+     * Initializes the state of the donut fragment.
+     * @param savedInstanceState If the fragment is being re-created from
+     * a previous saved state, this is the state.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Handles the setup for all elements in the Donut UI.
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return View: returns the view, which contains all the UI elements for the donut fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,6 +83,10 @@ public class DonutFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Sets up the recycler view for the donut selection.
+     * @param view: the view which contains all UI elements for the donut fragment.
+     */
     private void setDonutOptionsRecyclerView(View view) {
         donutOptionsRecyclerView = view.findViewById(R.id.donutOptionsRecyclerView);
         setupDonutItems();
@@ -70,15 +96,14 @@ public class DonutFragment extends Fragment {
         donutOptionsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
+    /**
+     * Adds all donut information (name, image, and price) to a new item in the recycler view.
+     * The information is stored in the strings.xml.
+     */
     private void setupDonutItems() {
-        /*
-         * Item names are defined in a String array under res/string.xml.
-         * Your item names might come from other places, such as an external file, or the database
-         * from the backend.
-         */
+
         String [] itemNames = getResources().getStringArray(R.array.donutNamesOptions);
-        /* Add the items to the ArrayList.
-         */
+
         for (int i = 0; i < itemNames.length; i++) {
             if (itemNames[i].contains("Yeast"))
                 donut = new YeastDonut();
