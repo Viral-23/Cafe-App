@@ -131,9 +131,9 @@ public class CoffeeFragment extends Fragment {
                 else {
                     if (toast != null)
                         toast.cancel();
-
+                    String msg = getResources().getString(R.string.cupSizeSelected);
                     toast = Toast.makeText(getActivity(),
-                            adapterView.getItemAtPosition(i).toString() + " cup selected",
+                            adapterView.getItemAtPosition(i).toString() + msg,
                             Toast.LENGTH_SHORT);
 
                     toast.show();
@@ -191,12 +191,13 @@ public class CoffeeFragment extends Fragment {
             public void onClick(View view) {
                 if (toast != null)
                     toast.cancel();
-
                 if(((CompoundButton) view).isChecked()){
-                    toast = Toast.makeText(getActivity(), checkBox.getText() + " added",
+                    String msg = getResources().getString(R.string.added);
+                    toast = Toast.makeText(getActivity(), checkBox.getText() + msg,
                             Toast.LENGTH_SHORT);
                 } else {
-                    toast = Toast.makeText(getActivity(), checkBox.getText() + " removed",
+                    String msg = getResources().getString(R.string.removed);
+                    toast = Toast.makeText(getActivity(), checkBox.getText() + msg,
                             Toast.LENGTH_SHORT);
                 }
 
@@ -236,8 +237,9 @@ public class CoffeeFragment extends Fragment {
                 else {
                     if (toast != null)
                         toast.cancel();
+                    String msg = getResources().getString(R.string.quantityColon);
                     toast = Toast.makeText(getActivity(),
-                            "quantity: " + adapterView.getItemAtPosition(i).toString(),
+                            msg + adapterView.getItemAtPosition(i).toString(),
                             Toast.LENGTH_SHORT);
 
                     toast.show();

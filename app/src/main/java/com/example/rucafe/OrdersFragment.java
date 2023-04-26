@@ -290,13 +290,13 @@ public class OrdersFragment extends Fragment {
      * Helper method to clear the payment details, if not enough information.
      */
     private void clearReceipt() {
-        orderSubtotalText.setText("");
-        orderSalesTaxText.setText("");
-        orderTotalText.setText("");
+        orderSubtotalText.setText(null);
+        orderSalesTaxText.setText(null);
+        orderTotalText.setText(null);
 
-        subtotalText.setText("");
-        salesTaxText.setText("");
-        totalForOrderText.setText("");
+        subtotalText.setText(null);
+        salesTaxText.setText(null);
+        totalForOrderText.setText(null);
     }
 
     /**

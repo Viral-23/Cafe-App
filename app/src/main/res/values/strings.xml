@@ -30,9 +30,17 @@
 
     <string name="noCupSelectedTitle">No cup size selected</string>
     <string name="noCupSelectedMessage">Please select a cup size in order to place order.</string>
+    <string name="cupSizeSelected">\u0020cup selected</string>
+
 
     <string name="noQuantitySelectedTitle">No quantity selected</string>
     <string name="noQuantitySelectedMessage">Please select a quantity in order to place order.</string>
+
+    <string name="added">\u0020added</string>
+    <string name="removed">\u0020removed</string>
+
+    <string name="quantityColon">Quantity:\u0020</string>
+
 
     <string-array name="donutNamesOptions">
         <item>Glazed Yeast Donut</item>
@@ -50,6 +58,10 @@
         <item>Blueberry Donut Hole</item>
         <item>Rainbow Donut Hole</item>
     </string-array>
+
+    <string name="addedToOrder">\u0020added to order.</string>
+    <string name="notAddedToOrder">\u0020not added to order.</string>
+
 
     <string name="coffeeAddedToOrderToastMessage">Coffee Added To Order</string>
 

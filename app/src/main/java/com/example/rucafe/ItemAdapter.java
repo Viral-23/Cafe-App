@@ -129,8 +129,9 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
                             }
                             clearDonutQuantitySelector();
                             OrdersFragment.order.addItemToOrder(donut);
+                            String msg = itemView.getResources().getString( R.string.addedToOrder);
                             DonutFragment.donutToast = Toast.makeText(itemView.getContext(),
-                                    donut_name.getText().toString() + " added to order.", Toast.LENGTH_SHORT);
+                                    donut_name.getText().toString() + msg, Toast.LENGTH_SHORT);
                             DonutFragment.donutToast.show();
                         }
                     }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -138,8 +139,9 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
                             if (DonutFragment.donutToast != null) {
                                 DonutFragment.donutToast.cancel();
                             }
+                            String msg = itemView.getResources().getString( R.string.notAddedToOrder);
                             DonutFragment.donutToast = Toast.makeText(itemView.getContext(),
-                                    donut_name.getText().toString() + " not added to order.", Toast.LENGTH_SHORT);
+                                    donut_name.getText().toString() + msg, Toast.LENGTH_SHORT);
                             DonutFragment.donutToast.show();
                         }
                     });
